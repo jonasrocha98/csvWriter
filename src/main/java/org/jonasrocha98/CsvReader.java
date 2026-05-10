@@ -5,20 +5,23 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.SplittableRandom;
 
 public class CsvReader {
 
-    public static List<String[]> ler(String caminhoDoArquivo){
+    public static CsvData ler(String caminhoDoArquivo){
         List<String[]> dados = new ArrayList<>();
+        String[] cabecalho = null;
         try {
             List<String> linhas = Files.readAllLines(Paths.get(caminhoDoArquivo));
-            for (String l: linhas){
-                String[] v = l.split(",");
+            cabecalho = linhas.get(0).split(","); //guarda o cabeçalho
+            for (int i = 1; i< linhas.size(); i++){ //começa no indice 1
+                String[] v = linhas.get(i).split(",");
                 dados.add(v);
             }
-        } catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Erro ao ler o arquivo " + e.getMessage());
         }
-        return dados;
+        return new CsvData(cabecalho, dados);
     }
 }
