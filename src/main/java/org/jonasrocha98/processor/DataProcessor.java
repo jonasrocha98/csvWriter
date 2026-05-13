@@ -18,4 +18,10 @@ public class DataProcessor {
         }
         return resultado;
     }
+
+    // ordenar linhas pelo valor de uma coluna
+
+
+
+
 }
