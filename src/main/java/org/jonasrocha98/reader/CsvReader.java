@@ -1,11 +1,12 @@
-package org.jonasrocha98;
+package org.jonasrocha98.reader;
+
+import org.jonasrocha98.CsvData;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SplittableRandom;
 
 public class CsvReader {
 

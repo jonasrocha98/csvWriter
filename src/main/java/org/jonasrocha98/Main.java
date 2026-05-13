@@ -1,7 +1,8 @@
 package org.jonasrocha98;
 
+import org.jonasrocha98.reader.CsvReader;
+
 import java.util.Arrays;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
