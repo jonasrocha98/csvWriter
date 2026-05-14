@@ -1,23 +1,29 @@
 package org.jonasrocha98;
 
+import org.jonasrocha98.processor.DataProcessor;
 import org.jonasrocha98.reader.CsvReader;
+import org.jonasrocha98.writer.ReportWriter;
 
+import java.io.File;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        String caminho = "data/input.csv";
+        String caminho = "data" + File.separator + "input.csv";
 
         CsvData dados = CsvReader.ler(caminho);
 
-        System.out.println("Cabeçalho: "+ Arrays.toString(dados.getCabecalho()));
+        //Exemplos
+        List<String[]> ordenar = DataProcessor.ordenarPorColuna(dados, 3);
+        ReportWriter.exibir(ordenar);
 
-        for (String[] l: dados.getLinhas()){
-            for(String v: l) {
-                System.out.print(v + " ");
-            }
-            System.out.println( );
-        }
+
+        /*
+        List<String[]> filtrar = DataProcessor.filtrarPorTexto(dados, 0, "Maria");
+        ReportWriter.exibir(filtrar);
+        */
+
 
     }
 }
